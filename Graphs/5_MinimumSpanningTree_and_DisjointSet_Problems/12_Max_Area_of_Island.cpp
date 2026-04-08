@@ -52,7 +52,7 @@ public:
                 if(grid[i][j] == 1){
                     int node = i * n + j;
                     int root = ds.findUPar(node);
-                    maxArea = max(maxArea, ds.size[root]);
+                    maxArea = max(maxArea, ds.size[zroot]);
                 }
             }
         }

@@ -13,7 +13,7 @@ class Solution {
         }
         vector<int> dist(V, INT_MAX);
         dist[src] = 0;
-        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int,4 int>>> minHeap;
+        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> minHeap;
         minHeap.push({0, src});
         while(!minHeap.empty()){
             int d = minHeap.top().first;

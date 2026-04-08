@@ -53,7 +53,7 @@ public:
     }
 };
 //* Time Complexity: O(N) + O(α(M)) ~ O(N) where {M is maxRow + maxCol} for iterating through the stones and performing union-find operations where N is the number of stones
-//* Space Complexity: O(maxRow + maxCol) for the Disjoint Set data structure and the unordered map to
+//* Space Complexity: O(maxRow + maxCol) for the Disjoint Set data structure and the unordered map to store the unique nodes (rows and columns) that are connected by stones
 
 //! Intution: 
 // We can treat each row and column as a node in a graph, and each stone as an edge connecting the corresponding row node and column node. The number of connected components in this graph will give us the number of groups of stones that are connected together. To remove the maximum number of stones, we can remove all but one stone from each connected component. Therefore, the number of stones that can be removed is equal to the total number of stones minus the number of connected components.

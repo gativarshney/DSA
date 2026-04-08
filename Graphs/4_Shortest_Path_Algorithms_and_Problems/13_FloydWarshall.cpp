@@ -25,3 +25,5 @@ for(int i=0; i<n; i++){
     }
 }
 // As a negative weight cycle will result in a negative value on the diagonal of the distance matrix, which is not possible in a graph without such cycles.
+
+// Because Floyd-Warshall keeps relaxing paths, and a negative cycle allows reducing the distance from a node to itself indefinitely, which reflects as a negative diagonal value.

@@ -56,3 +56,57 @@ public:
 
 //? Instead of performing BFS from every node (which would be O(N·(N + E))), 
 //? we optimize the solution by running BFS only three times from the fixed nodes x, y, and z.
+
+//********************************************************************** */
+
+//! Time Limit Exceeded for below code, because we are performing BFS from every node, which is O(N·(N + E)) in the worst case.
+class Solution {
+private:
+    bool pytha(vector<int> sides){
+        sort(sides.begin(), sides.end());
+        long long a = sides[0];
+        long long b = sides[1];
+        long long c = sides[2];
+        return a*a + b*b == c*c;
+    }
+    vector<int> bfs(int src, vector<vector<int>> &adj, int x, int y, int z){
+        int n = adj.size();
+        queue<int> q;
+        q.push(src);
+        vector<int> dist(n, -1);
+        dist[src] = 0;
+        vector<int> side(3, -1);
+        while(!q.empty()){
+            int node = q.front();
+            q.pop();
+            if(node == x) side[0] = dist[node];
+            if(node == y) side[1] = dist[node];
+            if(node == z) side[2] = dist[node];
+            
+            for(int it : adj[node]){
+                if(dist[it] == -1){
+                    dist[it] = dist[node] + 1;
+                    q.push(it);
+                }
+            }
+        }
+        return side;        
+    }
+public:
+    int specialNodes(int n, vector<vector<int>>& edges, int x, int y, int z) {
+        vector<vector<int>> adj(n);
+        for(auto &it : edges){
+            int u = it[0];
+            int v = it[1];
+            adj[u].push_back(v);
+            adj[v].push_back(u);
+        }
+        int cnt = 0;
+        for(int i=0; i<n; i++){
+            vector<int> sides = bfs(i, adj, x, y, z);
+            if(sides[0] == -1 || sides[1] == -1 || sides[2] == -1) continue;
+            if(pytha(sides)) cnt++;
+        }
+        return cnt;
+    }
+};

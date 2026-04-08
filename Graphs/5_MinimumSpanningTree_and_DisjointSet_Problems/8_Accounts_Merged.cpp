@@ -33,7 +33,7 @@ public:
         for(int i=0; i<n; i++){
             for(int j=1; j<accounts[i].size(); j++){
                 string mail = accounts[i][j];
-                if(mpp.find(accounts[i][j]) != mpp.end()){
+                if(mpp.find(mail) != mpp.end()){
                     int index = mpp[mail];
                     ds.unionBySize(i, index);
                 }

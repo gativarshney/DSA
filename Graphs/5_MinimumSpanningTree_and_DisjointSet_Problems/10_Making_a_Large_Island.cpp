@@ -43,7 +43,6 @@ public:
                         ds.unionBySize(node, adjNode);
                     }
                 }
-                
             }
         }
         int maxArea = 0;
@@ -64,10 +63,10 @@ public:
                 for(auto it : st){
                     area += ds.size[it];
                 }
-                maxArea = max(maxArea, area + 1);
-                
+                maxArea = max(maxArea, area + 1); 
             }
         }
+        // What if all cells are 1, then we can take the size of any component as the answer.
         for(int i=0; i<n*n; i++){
             maxArea = max(maxArea, ds.size[ds.findUPar(i)]);
         }

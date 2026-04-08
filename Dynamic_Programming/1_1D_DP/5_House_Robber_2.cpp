@@ -1,3 +1,50 @@
+//! Recursion + memoization
+class Solution {
+private:
+    int solve(int idx, int start, vector<int> &nums, vector<int> &dp){
+        if(idx < start) return 0;
+        if(idx == start) return nums[start];
+        if(dp[idx] != -1) return dp[idx];
+        int pick = nums[idx] + solve(idx-2, start, nums, dp);
+        int notPick = 0 + solve(idx-1, start, nums, dp);
+        return dp[idx] = max(pick, notPick);
+    }
+
+public:
+    int rob(vector<int>& nums) {
+        int n = nums.size();
+        if(n == 1) return nums[0];
+        vector<int> dp1(n, -1);
+        vector<int> dp2(n, -1);
+        return max(solve(n-1, 1, nums, dp1), solve(n-2, 0, nums, dp2));
+    }
+};
+
+//! Tabulation
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        int n = nums.size();
+        if(n == 1) return nums[0];
+        vector<int> dp1(n, 0);
+        vector<int> dp2(n, 0);
+        dp1[1] = nums[1], dp2[0] = nums[0];
+        for(int idx=2; idx<n; idx++){
+            int pick = nums[idx] + dp1[idx-2];
+            int notPick = dp1[idx-1];
+            dp1[idx] = max(pick, notPick);
+        }
+        for(int idx=1; idx<n-1; idx++){
+            int pick = nums[idx];
+            if(idx >= 2) pick += dp2[idx-2];
+            int notPick = dp2[idx-1];
+            dp2[idx] = max(pick, notPick);
+        }
+        return max(dp1[n-1], dp2[n-2]);
+    }
+};
+
+//! Another Approach Using House Robber I Logic
 class Solution {
 private:
     int solve(vector<int> &nums){
@@ -27,6 +74,7 @@ public:
 
 //* Time Complexity: O(n)
 //* Space Complexity: O(n), O(1) for DP logic Extra O(n) due to temp arrays
+
 
 /*
 HOUSE ROBBER II (Circular Houses)
