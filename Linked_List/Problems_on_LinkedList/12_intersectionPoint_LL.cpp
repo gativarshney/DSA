@@ -1,11 +1,11 @@
  ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-    ListNode* temp = headA;
-    ListNode* temp = headB;
-    unordered_map<ListNode*, int> mpp;
+     unordered_map<ListNode*, int> mpp;
+     ListNode* temp = headA;
     while(temp != nullptr){
         mpp[temp] = 1;
         temp = temp->next;
     }
+    temp = headB;
     while(temp != nullptr){
         if(mpp.find(temp) != mpp.end()){
             return temp;
@@ -33,7 +33,7 @@ ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
     t1 = headA;
     t2 = headB;
     if(n1 > n2){
-        for(int i=1; i<= (n1-n2); i++){
+        for(int i=1; i <= (n1-n2); i++){
             t1 = t1->next;
         }
     }

@@ -33,3 +33,27 @@ ListNode *detectCycle(ListNode *head) {
     return NULL;
 }
 // TC: O(N) SC: O(1)
+
+//? Distance from head to cycle start = distance from meeting point to cycle start (mod cycle)
+
+//! Explanation for Interview
+/*
+After detecting a cycle, when slow and fast meet, I reset one pointer to the head.
+Then I move both pointers one step at a time.
+Due to the distance relationship between head, cycle start, and meeting point, both pointers will meet exactly at the start of the cycle.
+This works because the distance from head to cycle start is equal to the distance from meeting point to cycle start, so they will synchronize at the cycle start.
+
+Distance Relationship:
+Let’s say:
+- Distance from head to cycle start = L
+- Distance from cycle start to meeting point = x
+- Distance from meeting point back to cycle start = C - x (where C is the cycle length)
+
+When they meet, the fast pointer has traveled twice the distance of the slow pointer, so:
+2(L + x) = L + x + kC
+2L + 2x = L + x + kC
+L + x = kC
+L = kC - x
+
+The fast pointer may complete multiple cycles before meeting the slow pointer, so we use kC instead of just C. This leads to the relation L + x = kC, which explains why resetting one pointer to head works.
+*/

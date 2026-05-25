@@ -26,3 +26,11 @@ bool hasCycle(ListNode *head) {
 }
 // Time Complexity (TC): O(N)
 // Space Complexity (SC): O(1)
+
+//! Explaination for Interview
+/*
+I use two pointers, slow and fast. Slow moves one step, fast moves two steps.
+If the list has no cycle, fast will reach the end.
+If a cycle exists, fast will eventually catch up with slow inside the loop because it moves faster, so they will meet.
+That meeting confirms the presence of a cycle.
+*/

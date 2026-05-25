@@ -11,7 +11,7 @@ ListNode* middleNodeBruteForce(ListNode* head) {
     int mid = cnt/2 + 1;
     temp = head;
     while(temp != NULL){
-        cnt--;
+        mid--;
         if(mid == 0) break;
         temp = temp->next;
     }

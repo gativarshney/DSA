@@ -14,7 +14,7 @@ ListNode* sortList(ListNode* head) {
     }
     return head;
 }
-// TC: O(N * logN * N) SC: O(N)
+// TC: O(N * logN + N) SC: O(N)
 
 //*********************************************************************/
 
