@@ -55,3 +55,5 @@ bool isPalindrome(ListNode* head) {
     return true;
 }
 //* TC: O(2*N) SC: O(1)
+
+//? This implementation is first finding middle of LL using slow and fast and then reverse from slow->next and then compare and at the end return true or false and before returing reverse again to restore the original LL.

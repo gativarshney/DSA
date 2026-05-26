@@ -1,3 +1,5 @@
+//! Digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+
 ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
     ListNode* dummyNode = new ListNode(-1);
     ListNode* curr = dummyNode;

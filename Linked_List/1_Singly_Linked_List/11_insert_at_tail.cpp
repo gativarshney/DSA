@@ -39,7 +39,7 @@ Node* insertTail(Node* head, int val){
     while(temp->next != nullptr){
         temp = temp->next;
     }
-    Node* tail = new Node(val, temp);
+    Node* tail = new Node(val);
     temp->next = tail;
     tail->next = nullptr;
     return head;

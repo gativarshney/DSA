@@ -1,3 +1,5 @@
+//! Write a function to delete a node (except the tail) in a singly linked list, given only access to that node. ie. Head is not given and we have to delete the node which is given as input.
+
 class Solution {
 public:
     void deleteNode(ListNode* node) {

@@ -17,6 +17,7 @@
 //? TC: O(m + n) SC: O(n) or O(m)
 
 //************************************************ */
+//! Approach 2: The Length Difference Method (Optimal)
 
 ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
     ListNode* t1 = headA;
@@ -51,6 +52,8 @@ ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
 }
 //? TC: O(n1 + 2 * n2) or O(2 * n1 + n2)
 //? SC: O(1)
+
+//! Approach 3: The Ghost Rider / Swapping Method (Most Elegant Optimal)
 
 ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
     if(headA == nullptr || headB == nullptr) return nullptr;
