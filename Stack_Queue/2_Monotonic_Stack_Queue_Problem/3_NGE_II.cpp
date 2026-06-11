@@ -65,4 +65,4 @@ public:
         return ans;
     }
 };
-//! TC: O(4*N) SC: O(2*N)
+//! tc: O(2*N) sc: O(N)

@@ -18,7 +18,8 @@ public:
         return span;
     }
 };
-// TC: O(no. of days) SC: O(no. of next calls)
+// TC: Every next() call takes O(no. of days) time
+// SC: O(no. of next calls)
 
 //! Optimized Approach 
 class StockSpanner {

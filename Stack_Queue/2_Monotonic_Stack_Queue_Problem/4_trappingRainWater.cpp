@@ -54,6 +54,41 @@ public:
 
 //? Optimal Approach
 //* TC: O(N), SC: O(1)
+
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int n = height.size();
+        int leftMax = 0, rightMax = 0;
+        int l = 0, r = n-1;
+        int totalWater = 0;
+
+        while(l < r){
+            if(height[l] <= height[r]){
+                if(height[l] >= leftMax){
+                    leftMax = height[l];
+                }
+                else{
+                    totalWater += leftMax - height[l];
+                }
+                l++;
+            }
+            else{
+                if(height[r] >= rightMax){
+                    rightMax = height[r];
+                }
+                else{
+                    totalWater += rightMax - height[r];
+                }
+                r--;
+            }
+        }
+
+        return totalWater;
+    }
+};
+
+//* Simplified Code of Optimal Approach
 class Solution {
 public:
     int trap(vector<int>& height) {
