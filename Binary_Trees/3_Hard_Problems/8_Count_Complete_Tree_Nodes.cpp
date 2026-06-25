@@ -36,3 +36,10 @@ public:
 // - In the worst case, we make O(log n) recursive calls (tree height).
 //* Therefore, total time complexity = O(log n) * O(log n) = O(log^2 n).
 //* Space Complexity: O(log n) due to recursion stack (maximum depth = tree height).
+
+
+// Why not O(n)?
+
+// A common misconception is: countNodes(root->left) + countNodes(root->right) looks like visiting every node.
+// But because many subtrees are detected as perfect and counted in: (1 << h) - 1
+// without traversing their nodes, most of the tree is skipped. That's what reduces the complexity from O(n) to O(log² n).

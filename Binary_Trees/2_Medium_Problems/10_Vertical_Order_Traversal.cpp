@@ -34,3 +34,5 @@ public:
 
 // Time Complexity: O(N log N) {logN due to multiset insertions}
 // Space Complexity: O(N) + O(N) {for map and queue}
+
+// Since the Vertical Traversal problem can have duplicate node values at the same position (column, row) so use multiset to store the node values at that position, which will automatically sort them in ascending order inplace of using a vector or a set.

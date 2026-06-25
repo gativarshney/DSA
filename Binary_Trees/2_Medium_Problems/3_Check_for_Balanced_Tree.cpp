@@ -25,3 +25,40 @@ public:
 // SC: O(H) where H is the height of the tree (due to recursion stack)
 // In worst case (skewed tree) O(N))
 // In best case (balanced tree) O(log N)
+
+//! Simple Solution to understand
+class Solution {
+    pair<bool, int> isBalancedFast(TreeNode* root){
+        if(root == NULL){
+            return {true, 0};
+        }
+
+
+        pair<bool, int> left = isBalancedFast(root->left);
+        pair<bool, int> right = isBalancedFast(root->right);
+
+        bool leftAns = left.first;
+        bool rightAns = right.first;
+        bool diff = abs(left.second - right.second) <= 1;
+
+        pair<bool, int> ans;
+        ans.second = max(left.second, right.second) + 1;
+
+        if(leftAns && rightAns && diff){
+            ans.first = true;
+        }
+        else{
+            ans.first = false;
+        }
+        
+        return ans;
+    }
+public:
+    bool isBalanced(TreeNode* root) {
+        if(root == NULL) return true;
+
+        return isBalancedFast(root).first;
+    }
+};
+// TC: O(N)
+// SC: O(H) where H is the height of the tree (due to recursion stack)

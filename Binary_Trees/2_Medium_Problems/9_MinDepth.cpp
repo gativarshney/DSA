@@ -14,3 +14,12 @@ public:
 // SC: O(H) where H is the height of the tree (due to recursion stack)
 // In worst case (skewed tree) O(N))
 // In best case (balanced tree) O(log N)
+
+//! NOTE:
+// If one child is missing, you are forced to go through the existing child.
+// If one child is missing, you must ignore the NULL side and go through the non-NULL child.
+
+// That's exactly what these two lines handle:
+
+// if (root->left == nullptr) return 1 + rh;
+// if (root->right == nullptr) return 1 + lh;
