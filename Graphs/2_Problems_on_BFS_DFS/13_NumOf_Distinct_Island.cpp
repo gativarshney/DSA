@@ -34,5 +34,5 @@ public:
         return st.size();
     }
 };
-// Time Complexity: O(n*m) (for DFS traversal)
-// Space Complexity: O(n*m) (for visited array and recursion stack + set to store distinct islands)
+// Time: O(n * m * log(n * m))
+// Space: O(n * m)

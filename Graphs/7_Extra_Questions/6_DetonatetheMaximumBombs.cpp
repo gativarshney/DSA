@@ -37,3 +37,5 @@ public:
         return maxi;
     }
 };
+// TC: O(n^2) but in worst case it can be O(n^3) if all nodes are connected because of dfs
+// SC: O(n^2) for adjacency list + O(n) for visited array + O(n) for recursion stack
